@@ -1,0 +1,5 @@
+﻿  main.cpp
+d:\mrgrek\visualprojects\sedist\sedist\main.cpp(7): error C2065: Image: необъявленный идентификатор
+d:\mrgrek\visualprojects\sedist\sedist\main.cpp(7): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "snakeHead"
+d:\mrgrek\visualprojects\sedist\sedist\main.cpp(7): error C2065: snakeHead: необъявленный идентификатор
+d:\mrgrek\visualprojects\sedist\sedist\main.cpp(20): error C2661: sf::RenderTarget::draw: нет перегруженной функции, принимающей 0 аргументов
