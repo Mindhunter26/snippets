@@ -130,12 +130,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="gameOver.cpp" />
+    <ClCompile Include="helper.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="menuWindow.cpp" />
+    <ClCompile Include="playWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameOver.h" />
+    <ClInclude Include="helper.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="menuWindow.h" />
+    <ClInclude Include="playWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

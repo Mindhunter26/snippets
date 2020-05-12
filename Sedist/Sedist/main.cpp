@@ -5,6 +5,7 @@
 #include <sstream>
 #include "menu.h"
 #include "gameOver.h"
+#include "helper.h"
 
 using namespace sf;
 
@@ -21,18 +22,9 @@ float delay = 0.1;
 bool isTailHit = false;
 bool isReplay = false;
 
-struct Snake { 
-	int x, y;
-} s[100];
-
-struct Fruct { 
-	int x, y; 
-} f;
-
-enum Fruits {
-	STANDART,
-	SPEED
-} fruitType;
+Snake s[100];
+Fruct f;
+Fruits fruitType;
 
 void logic()
 {
@@ -100,9 +92,6 @@ int main()
 	srand(time(0));
 	setlocale(LC_ALL, "ru");
 	
-	RenderWindow menuWindow(VideoMode(w, h), "Snake++");
-	Menu menu(menuWindow.getSize().x, menuWindow.getSize().y);
-
 	Texture bgLight, snakeBody, apple, snakeHead, bgDark, speedApple;
 	bgLight.loadFromFile("img/greenBack.png");
 	snakeBody.loadFromFile("img/snakeAlt.png");
@@ -118,6 +107,8 @@ int main()
 	Sprite speedAppleSprite(speedApple);
 	Clock clock;
 	//////////////////////////////////////////////////    MENU    ///////////////////////////////////////////////////////////////////////////////
+	RenderWindow menuWindow(VideoMode(w, h), "Snake++");
+	Menu menu(menuWindow.getSize().x, menuWindow.getSize().y);
 	while (menuWindow.isOpen())
 	{
 		Event event;
@@ -178,12 +169,13 @@ int main()
 	}
 	////////////////////////////////////////////   PLAY   ////////////////////////////////////////////////////////////////////////////
 	while (1) {
-		RenderWindow gameWindow(VideoMode(menuWindow.getSize().x, menuWindow.getSize().y), "Snake++");
+		
 		if (menu.pressedButton == PLAY) {
+			RenderWindow gameWindow(VideoMode(menuWindow.getSize().x, menuWindow.getSize().y), "Snake++");
 			isTailHit = false;
 			isReplay = false;
 			score = 0;
-			num = 1;
+			num = 2;
 			f.x = 2 + rand() % (N - 2);
 			f.y = 2 + rand() % (M - 2);
 			
@@ -216,21 +208,21 @@ int main()
 						gameWindow.close();
 				}
 
-				if (dir != 2)
+				if (dir != 2 && !Keyboard::isKeyPressed(Keyboard::Right) && !Keyboard::isKeyPressed(Keyboard::D) && !Keyboard::isKeyPressed(Keyboard::Up) && !Keyboard::isKeyPressed(Keyboard::W) && !Keyboard::isKeyPressed(Keyboard::Down) && !Keyboard::isKeyPressed(Keyboard::S))
 				{
 					if (Keyboard::isKeyPressed(Keyboard::Left) || Keyboard::isKeyPressed(Keyboard::A))
 						dir = 1;
 				}
-				if (dir != 1)
+				if (dir != 1 && !Keyboard::isKeyPressed(Keyboard::Left) && !Keyboard::isKeyPressed(Keyboard::A) && !Keyboard::isKeyPressed(Keyboard::Up) && !Keyboard::isKeyPressed(Keyboard::W) && !Keyboard::isKeyPressed(Keyboard::Down) && !Keyboard::isKeyPressed(Keyboard::S))
 				{
 					if (Keyboard::isKeyPressed(Keyboard::Right) || Keyboard::isKeyPressed(Keyboard::D))
 						dir = 2;
 				}
-				if (dir != 0) {
+				if (dir != 0 && !Keyboard::isKeyPressed(Keyboard::Right) && !Keyboard::isKeyPressed(Keyboard::D) && !Keyboard::isKeyPressed(Keyboard::Left) && !Keyboard::isKeyPressed(Keyboard::A) && !Keyboard::isKeyPressed(Keyboard::Down) && !Keyboard::isKeyPressed(Keyboard::S)) {
 					if (Keyboard::isKeyPressed(Keyboard::Up) || Keyboard::isKeyPressed(Keyboard::W))
 						dir = 3;
 				}
-				if (dir != 3)
+				if (dir != 3 && !Keyboard::isKeyPressed(Keyboard::Right) && !Keyboard::isKeyPressed(Keyboard::D) && !Keyboard::isKeyPressed(Keyboard::Up) && !Keyboard::isKeyPressed(Keyboard::W) && !Keyboard::isKeyPressed(Keyboard::Left) && !Keyboard::isKeyPressed(Keyboard::A))
 				{
 					if (Keyboard::isKeyPressed(Keyboard::Down) || Keyboard::isKeyPressed(Keyboard::S))
 						dir = 0;
@@ -351,7 +343,7 @@ int main()
 					std::ostringstream scorString;
 					scorString << score;
 					gameOver.scoreText.setString("YOUR SCORE: " + scorString.str());
-					gameOver.scoreText.setPosition(100, 100);
+					gameOver.scoreText.setPosition(375, 100);
 					resultWindow.draw(gameOver.scoreText);
 					gameOver.draw(resultWindow);
 					resultWindow.display();

@@ -10,22 +10,22 @@ GameOver::GameOver(float width, float height)
 	resultText[0].setFont(font);
 	resultText[0].setFillColor(sf::Color::White);
 	resultText[0].setString("GAME OVER!");
-	resultText[0].setPosition(sf::Vector2f(width / 2, height / 5));
+	resultText[0].setPosition(sf::Vector2f(width / 2 - 120, height / 4));
 
 	resultText[1].setFont(font);
 	resultText[1].setFillColor(sf::Color::White);
 	resultText[1].setString("Try again?");
-	resultText[1].setPosition(sf::Vector2f(width / 2, height / 4));
+	resultText[1].setPosition(sf::Vector2f(width / 2 - 110, height / 3));
 
 	resultText[2].setFont(font);
 	resultText[2].setFillColor(sf::Color::Red);
 	resultText[2].setString("Yes");
-	resultText[2].setPosition(sf::Vector2f(width / 2, height / 3));
+	resultText[2].setPosition(sf::Vector2f(width / 2.15, height / 2));
 
 	resultText[3].setFont(font);
 	resultText[3].setFillColor(sf::Color::White);
 	resultText[3].setString("No");
-	resultText[3].setPosition(sf::Vector2f(width / 2, height / 2));
+	resultText[3].setPosition(sf::Vector2f(width / 2.1, height / 2 + 50));
 
 	scoreText.setFont(font);
 	scoreText.setFillColor(sf::Color::White);
