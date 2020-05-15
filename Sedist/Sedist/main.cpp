@@ -22,7 +22,7 @@ float delay = 0.1;
 bool isTailHit = false;
 bool isReplay = false;
 
-Snake s[100];
+Snake s[300];
 Fruct f;
 Fruits fruitType;
 
