@@ -14,5 +14,5 @@ enum Fruits {
 	SPEED
 };
 
-
+void logic(int *num, int dir, Snake *s, Fruct *f, Fruits *fruitType, float *delay, int *score, int N, int M, bool *isTailHit);
 

@@ -14,7 +14,6 @@ private:
     int critical_points;
     int points;
 
-    bool addPoints(int* points_value, int p);
     double force();
     bool critical();
     double defence();

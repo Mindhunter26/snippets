@@ -1,16 +1,5 @@
 #include "FighterClass.h"
 
-bool Fighter::addPoints(int* points_value, int p)
-{
-       if (p <= points)
-       {
-           *points_value += p;
-           points -= p;
-           return true;
-       }
-       return false;
-}
-
 double Fighter::force()
 {
        return 1 + force_points;
@@ -18,7 +7,7 @@ double Fighter::force()
 
 bool Fighter::critical()
 {
-    double randNum = rand() / static_cast<double>(RAND_MAX);
+    double randNum = (rand() % 10) / 9;
     double crit = 1/(1+pow(critical_points/4.0, 4));
 
     if (randNum > crit)
@@ -35,7 +24,7 @@ double Fighter::defence()
 bool Fighter::agility()
 {
        double agil = 1/(1+pow(agility_points/4.0, 4));
-       double randNum = rand() / static_cast<double>(RAND_MAX);
+       double randNum = (rand() % 10) / 9;
 
       if (randNum > agil)
           return true;
@@ -82,11 +71,57 @@ bool Fighter::is_dead()
            return false;
 }
 
-bool Fighter::add_health_points(int points) { return addPoints(&health_points, points); }
-bool Fighter::add_force_points(int points) { return addPoints(&force_points, points); }
-bool Fighter::add_defence_points(int points) { return addPoints(&defence_points, points); }
-bool Fighter::add_agility_points(int points) { return addPoints(&agility_points, points); }
-bool Fighter::add_critical_points(int points) { return addPoints(&critical_points, points); }
+bool Fighter::add_health_points(int pts)
+{
+    if (pts <= points)
+    {
+        health_points += pts;
+        points -= pts;
+        return true;
+    }
+    return false;
+}
+bool Fighter::add_force_points(int pts)
+{
+    if (pts <= points)
+    {
+        force_points += pts;
+        points -= pts;
+        return true;
+    }
+    return false;
+}
+bool Fighter::add_defence_points(int pts)
+{
+    if (pts <= points)
+    {
+        defence_points += pts;
+        points -= pts;
+        return true;
+    }
+    return false;
+
+}
+bool Fighter::add_agility_points(int pts)
+{
+    if (pts <= points)
+    {
+        agility_points += pts;
+        points -= pts;
+        return true;
+    }
+    return false;
+}
+bool Fighter::add_critical_points(int pts)
+{
+    if (pts <= points)
+    {
+        critical_points += pts;
+        points -= pts;
+        return true;
+    }
+    return false;
+}
 
 
 
