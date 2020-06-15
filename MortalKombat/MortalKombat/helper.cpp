@@ -4,11 +4,11 @@
 Fighter botFighter()
 {
     Fighter f;
-    f.add_health_points(2 + rand() % 2);
-    f.add_force_points(2 + rand() % 2);
-    f.add_defence_points(2 + rand() % 2);
-    f.add_agility_points(2 + rand() % 2);
-    f.add_critical_points(2 + rand() % 2);
+    f.add_health_points(1);
+    f.add_force_points(1);
+    f.add_defence_points(1);
+    f.add_agility_points(3);
+    f.add_critical_points(4);
 
     return f;
 }

@@ -1,17 +1,21 @@
 #pragma once
 #include <cmath>
+#include <SFML/Graphics.hpp>
 
-struct Snake {
+class Snake {
+public:
 	int x, y;
 };
 
-struct Fruct {
+class Fruct {
+public:
 	int x, y;
 };
 
 enum Fruits {
 	STANDART,
-	SPEED
+	SPEED,
+	ROT
 };
 
 void logic(int *num, int dir, Snake *s, Fruct *f, Fruits *fruitType, float *delay, int *score, int N, int M, bool *isTailHit);

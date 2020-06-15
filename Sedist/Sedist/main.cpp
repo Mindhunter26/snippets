@@ -7,9 +7,8 @@
 #include "menu.h"
 #include "gameOver.h"
 #include "helper.h"
-#include "MenuWindow.h"
 #include "PlayWindow.h"
-#include "GameOverWindow.h"
+#include "Guide.h"
 
 using namespace sf;
 
@@ -35,69 +34,71 @@ int main()
 	Fruct f;
 	Fruits fruitType;
 
-	Texture bgLight, snakeBody, apple, snakeHead, bgDark, speedApple;
+	Texture bgLight, snakeBody, apple, snakeHead, bgDark, speedApple, rotApple;
 	bgLight.loadFromFile("img/greenBack.png");
 	snakeBody.loadFromFile("img/snakeAlt.png");
 	apple.loadFromFile("img/newApple.png");
 	snakeHead.loadFromFile("img/snakeAltHead.png");
 	bgDark.loadFromFile("img/grinBack.png");
 	speedApple.loadFromFile("img/speedApple.png");
+	rotApple.loadFromFile("img/rotApple.png"); 
+	
 	Sprite bgLightSprite(bgLight);
 	Sprite snakeBodySprite(snakeBody);
 	Sprite appleSprite(apple);
 	Sprite snakeHeadSprite(snakeHead);
 	Sprite bgDarkSprite(bgDark);
 	Sprite speedAppleSprite(speedApple);
+	Sprite rotAppleSprite(rotApple);
+
 	Clock clock;
 
-	//sf::IpAddress ip = sf::IpAddress::getLocalAddress(); //192.168.0.103 - local
-	//sf::TcpSocket socket;
-	//char connectionType;
+	bool update = false;
 
-	//std::cout << "(s) for server, (c) for client: ";
-	//std::cin >> connectionType;
-
-	//if (connectionType == 's')
-	//{
-	//	sf::TcpListener listener;
-	//	listener.listen(2000);
-	//	listener.accept(socket);
-	//}
-	//else
-	//	socket.connect(ip, 2000);
-
-	//Vector2f prevPos, p2Pos;
-
-	//socket.setBlocking(false);	
-	//
-	//bool update = false;
 	//////////////////////////////////////////////////    MENU    ///////////////////////////////////////////////////////////////////////////////
-	RenderWindow menuWindow(VideoMode(w, h), "Snake++");
+	RenderWindow menuWindow(VideoMode(w, h), "Snake++", Style::Close);
 	Menu menu(menuWindow.getSize().x, menuWindow.getSize().y);
 	
-	while (menuWindow.isOpen()) menuWindowFunc(menuWindow, &menu);
+	while (menuWindow.isOpen()) menu.menuWindowFunc(menuWindow, &menu);
+
 		
+	if (menu.pressedButton == GUIDE)
+	{
+		RenderWindow guideWindow(VideoMode(menuWindow.getSize().x, menuWindow.getSize().y), "Snake++", Style::Close);
+		Guide guide(menuWindow.getSize().x, menuWindow.getSize().y);
+		while (guideWindow.isOpen()) guide.guideWindowFunc(guideWindow, &guide);
+		if (guide.isEnterPressed) menu.pressedButton = PLAY;
+	}
 	////////////////////////////////////////////   PLAY   ////////////////////////////////////////////////////////////////////////////
-	while (1) {
-		
-		if (menu.pressedButton == PLAY) {
-			RenderWindow gameWindow(VideoMode(menuWindow.getSize().x, menuWindow.getSize().y), "Snake++");
+
+	while (1) 
+	{
+		if (menu.pressedButton == PLAY_ONLINE)
+		{
+			RenderWindow gameWindow(VideoMode(menuWindow.getSize().x, menuWindow.getSize().y), "Snake++", Style::Close);
+			
+		}
+
+		if (menu.pressedButton == PLAY) 
+		{
+			RenderWindow gameWindow(VideoMode(menuWindow.getSize().x, menuWindow.getSize().y), "Snake++", Style::Close);
 			isTailHit = false;
 			isReplay = false;
 			score = 0;
 			num = 2;
+			delay = 0.1;
 			f.x = 2 + rand() % (N - 2);
 			f.y = 2 + rand() % (M - 2);
 			
 			Font font;
 			font.loadFromFile("04B_30__.ttf");
-			Text text("", font, 14);
+			Text text("", font, 20);
 			text.setStyle(Text::Regular);
 			f.x = 10;
 			f.y = 10;
 			fruitType = static_cast<Fruits>(rand() % 2);
 			std::cout << fruitType;
-
+			
 			while (gameWindow.isOpen())
 			{
 				float time = clock.getElapsedTime().asSeconds();
@@ -113,12 +114,8 @@ int main()
 					//	FloatRect visibleArea(0, 0, e.size.width, e.size.height);
 					//	gameWindow.setView(View(visibleArea));
 					//}
-					if (e.type == Event::Closed)
+					if (e.type == Event::Closed || Keyboard::isKeyPressed(Keyboard::Escape))
 						gameWindow.close();
-					/*else if (e.type == Event::GainedFocus)
-						update = true;
-					else if (e.type == Event::LostFocus)
-						update = false;*/
 				}
 
 				if (dir != 2 && !Keyboard::isKeyPressed(Keyboard::Right) && !Keyboard::isKeyPressed(Keyboard::D) && !Keyboard::isKeyPressed(Keyboard::Up) && !Keyboard::isKeyPressed(Keyboard::W) && !Keyboard::isKeyPressed(Keyboard::Down) && !Keyboard::isKeyPressed(Keyboard::S))
@@ -131,7 +128,8 @@ int main()
 					if (Keyboard::isKeyPressed(Keyboard::Right) || Keyboard::isKeyPressed(Keyboard::D))
 						dir = 2;
 				}
-				if (dir != 0 && !Keyboard::isKeyPressed(Keyboard::Right) && !Keyboard::isKeyPressed(Keyboard::D) && !Keyboard::isKeyPressed(Keyboard::Left) && !Keyboard::isKeyPressed(Keyboard::A) && !Keyboard::isKeyPressed(Keyboard::Down) && !Keyboard::isKeyPressed(Keyboard::S)) {
+				if (dir != 0 && !Keyboard::isKeyPressed(Keyboard::Right) && !Keyboard::isKeyPressed(Keyboard::D) && !Keyboard::isKeyPressed(Keyboard::Left) && !Keyboard::isKeyPressed(Keyboard::A) && !Keyboard::isKeyPressed(Keyboard::Down) && !Keyboard::isKeyPressed(Keyboard::S)) 
+				{
 					if (Keyboard::isKeyPressed(Keyboard::Up) || Keyboard::isKeyPressed(Keyboard::W))
 						dir = 3;
 				}
@@ -145,20 +143,25 @@ int main()
 				{
 					timer = 0;
 					logic(&num, dir, s, &f, &fruitType, &delay, &score, N, M, &isTailHit);
+					if (num < 1) 
+					{ 
+						isTailHit = true;
+						gameWindow.close(); 
+					}
 				}
 
 				////// draw //////
 				gameWindow.clear();
-				playWindowFunc(gameWindow, isTailHit, N, M, score, size, num, &text, f, fruitType, s, &appleSprite, &speedAppleSprite, &bgDarkSprite, &bgLightSprite, &snakeHeadSprite, &snakeBodySprite);
+				playWindowFunc(gameWindow, isTailHit, N, M, score, size, num, &text, f, fruitType, s, &appleSprite, &speedAppleSprite, &bgDarkSprite, &bgLightSprite, &snakeHeadSprite, &snakeBodySprite, &rotAppleSprite);
 			}
 
 			/////////////////////////////////     GAME OVER      ////////////////////////////////////////////////////////////
 			if (isTailHit) {
-				RenderWindow resultWindow(VideoMode(w, h), "Snake++");
+				RenderWindow resultWindow(VideoMode(w, h), "Snake++", Style::Close);
 				GameOver gameOver(gameWindow.getSize().x, gameWindow.getSize().y);
 				
 				while (resultWindow.isOpen()) {
-					gameOverFunc(resultWindow, &gameOver, &isReplay, score);
+					gameOver.gameOverFunc(resultWindow, &gameOver, &isReplay, score);
 					if (isReplay == true) break;
 				}
 			}

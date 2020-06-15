@@ -1,6 +1,6 @@
 #include "PlayWindow.h"
 
-void playWindowFunc(RenderWindow &gameWindow, bool isTailHit, int N, int M, int score, int size, int num, Text *text, Fruct f, Fruits fruitType, Snake s[], Sprite *appleSprite, Sprite *speedAppleSprite, Sprite *bgDarkSprite, Sprite *bgLightSprite, Sprite *snakeHeadSprite, Sprite *snakeBodySprite)
+void playWindowFunc(RenderWindow &gameWindow, bool isTailHit, int N, int M, int score, int size, int num, Text *text, Fruct f, Fruits fruitType, Snake s[], Sprite *appleSprite, Sprite *speedAppleSprite, Sprite *bgDarkSprite, Sprite *bgLightSprite, Sprite *snakeHeadSprite, Sprite *snakeBodySprite, Sprite *rotAppleSprite)
 {
 	for (int i = 0; i < N; i++) {
 		for (int j = 2; j < M; j++)
@@ -39,11 +39,16 @@ void playWindowFunc(RenderWindow &gameWindow, bool isTailHit, int N, int M, int 
 		gameWindow.draw(*appleSprite);
 
 	}
-	else
+	else if (fruitType == SPEED)
 	{
 		speedAppleSprite->setPosition(f.x*size, f.y*size);
 		gameWindow.draw(*speedAppleSprite);
 
+	}
+	else if (fruitType == ROT)
+	{
+		rotAppleSprite->setPosition(f.x*size, f.y*size);
+		gameWindow.draw(*rotAppleSprite);
 	}
 	text->setString("Score:" + std::to_string(score));
 	text->setPosition(1, 1);

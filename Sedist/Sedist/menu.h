@@ -1,12 +1,13 @@
 #pragma once
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
+#include <iostream>
 
-#define MAX_NUMBER_OF_ITEMS 3
 
 enum buttonPressed {
 	NOTPRESSED,
 	PLAY,
-	OPTIONS,
+	PLAY_ONLINE,
+	GUIDE,
 	EXIT
 };
 
@@ -14,7 +15,7 @@ class Menu
 {
 	int selectedItemIndex;
 	sf::Font font;
-	sf::Text menu[MAX_NUMBER_OF_ITEMS];
+	sf::Text menu[4];
 public:
 	Menu(float width, float height);
 	~Menu();
@@ -23,5 +24,5 @@ public:
 	void MoveDown();
 	int GetPressedItem() { return selectedItemIndex; }
 	buttonPressed pressedButton = NOTPRESSED;
-	
+	void menuWindowFunc(sf::RenderWindow &window, Menu *menu);
 };

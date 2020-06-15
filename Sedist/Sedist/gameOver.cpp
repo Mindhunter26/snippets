@@ -31,7 +31,6 @@ GameOver::GameOver(float width, float height)
 	scoreText.setFillColor(sf::Color::White);
 
 	selectedItemIndex = 2;
-
 }
 
 
@@ -65,4 +64,59 @@ void GameOver::MoveDown()
 		selectedItemIndex++;
 		resultText[selectedItemIndex].setFillColor(sf::Color::Red);
 	}
+}
+
+void GameOver::gameOverFunc(sf::RenderWindow &resultWindow, GameOver *gameOver, bool *isReplay, int score)
+{
+	sf::Event event;
+	bestScore = score;
+	while (resultWindow.pollEvent(event))
+	{
+		//if (e.type == Event::Resized)
+		//{
+		//	// update the view to the new size of the window
+		//	FloatRect visibleArea(0, 0, e.size.width, e.size.height);
+		//	gameWindow.setView(View(visibleArea));
+		//}
+		if (event.type == sf::Event::Closed)
+			resultWindow.close();
+		switch (event.type)
+		{
+		case sf::Event::KeyReleased:
+			switch (event.key.code)
+			{
+			case sf::Keyboard::Up:
+				gameOver->MoveUp();
+				break;
+
+			case sf::Keyboard::Down:
+				gameOver->MoveDown();
+				break;
+
+			case sf::Keyboard::Return:
+				switch (gameOver->GetPressedItem())
+				{
+				case 2:
+					gameOver->choice = YES;
+					*isReplay = true;
+					//std::cout << "yea";
+					//resultWindow.close();
+					break;
+				case 3:
+					gameOver->choice = NO;
+					*isReplay = false;
+					resultWindow.close();
+					break;
+				}
+				break;
+			}
+			break;
+		}
+	}
+	resultWindow.clear();
+	gameOver->scoreText.setString("YOUR SCORE: " + std::to_string(score));
+	gameOver->scoreText.setPosition(375, 100);
+	resultWindow.draw(gameOver->scoreText);
+	gameOver->draw(resultWindow);
+	resultWindow.display();
 }

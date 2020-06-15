@@ -29,9 +29,22 @@ void logic(int *num, int dir, Snake *s, Fruct *f, Fruits *fruitType, float *dela
 		{
 			*delay = 0.1;
 		}
+		if (*fruitType == ROT)
+		{
+			*delay = 0.1;
+			*num = *num - 2;
+			*score = *score - 2;
+		}
 		*num = *num + 1;
 		*score = *score + 1;
-		*fruitType = static_cast<Fruits>(rand() % 2);
+		if (*score > 10)
+		{
+			*fruitType = static_cast<Fruits>(rand() % 3);
+		}
+		else
+		{
+			*fruitType = static_cast<Fruits>(rand() % 2);
+		}
 		f->x = 2 + rand() % (N - 2);
 		f->y = 2 + rand() % (M - 2);
 		for (int i = 0; i < *num; i++) {
