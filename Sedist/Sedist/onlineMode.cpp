@@ -5,7 +5,6 @@ modeScreen::modeScreen(float width, float height)
 {
 	if (!font.loadFromFile("04B_30__.ttf"))
 	{
-		// handle error
 	}
 
 	modeText[0].setFont(font);
@@ -71,13 +70,6 @@ void modeScreen::onlineModeWindowFunc(sf::RenderWindow &window, modeScreen *mode
 	
 	while (window.pollEvent(event))
 	{
-		//if (event.type == Event::Resized)
-		//	{
-		//		// update the view to the new size of the window
-		//		FloatRect visibleArea(0, 0, event.size.width, event.size.height);
-		//		menuWindow.setView(View(visibleArea));
-		//	}
-
 		switch (event.type)
 		{
 		case sf::Event::KeyReleased:

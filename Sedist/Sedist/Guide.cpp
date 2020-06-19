@@ -4,7 +4,6 @@ Guide::Guide(float width, float height)
 {
 	if (!image.loadFromFile("img/GuideScreen.png"))
 	{
-		//error
 	}
 	
 	texture.loadFromImage(image);
@@ -24,12 +23,6 @@ void Guide::guideWindowFunc(sf::RenderWindow &window, Guide *guide) {
 	sf::Event event;
 	while (window.pollEvent(event))
 	{
-		//if (e.type == Event::Resized)
-		//{
-		//	// update the view to the new size of the window
-		//	FloatRect visibleArea(0, 0, e.size.width, e.size.height);
-		//	gameWindow.setView(View(visibleArea));
-		//}
 		if (event.type == sf::Event::Closed)
 		{
 			isClosed = true;

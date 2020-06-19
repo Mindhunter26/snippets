@@ -4,7 +4,6 @@ GameOver::GameOver(float width, float height)
 {
 	if (!font.loadFromFile("04B_30__.ttf"))
 	{
-		// handle error
 	}
 	
 		resultText[0].setFont(font);
@@ -78,12 +77,6 @@ void GameOver::gameOverFunc(sf::RenderWindow &resultWindow, GameOver *gameOver, 
 	sf::Event event;
 	while (resultWindow.pollEvent(event))
 	{
-		//if (e.type == Event::Resized)
-		//{
-		//	// update the view to the new size of the window
-		//	FloatRect visibleArea(0, 0, e.size.width, e.size.height);
-		//	gameWindow.setView(View(visibleArea));
-		//}
 		if (event.type == sf::Event::Closed)
 			resultWindow.close();
 		

@@ -1,4 +1,3 @@
-//ј “”јЋ№Ќџ≈ ¬ќѕ–ќ—џ: изменить текстурку змейки, font, добавить разные фрукты и меню
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
@@ -82,7 +81,7 @@ int main()
 		}
 		if (menu.pressedButton == PLAY) break;
 	}
-	////////////////////////////////////////////   PLAY   ////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////   PLAY ONLINE   ////////////////////////////////////////////////////////////////////////////
 
 	while (1) 
 	{
@@ -102,27 +101,7 @@ int main()
 			delay = 0.1;
 			f.x = 2 + rand() % (N - 2);
 			f.y = 2 + rand() % (M - 2);
-			//std::cout << "Enter type of connecting: c - client or s - server" << std::endl;
-			//std::cin >> type;
-			//if (type == 's')
-			//{
-			//	sf::TcpListener listener;
-			//	listener.listen(2000);
-			//	listener.accept(socket);					// Will be contain a new connection
-			//	connectText += " server";
-			//	mode = 's';
-			//}
-			//else if (type == 'c')
-			//{
-			//	//cout << "Enter the new IP: ";
-			//	//cin >> ip;
-			//	socket.connect(ip, 2000);
-			//	connectText += " client";
-			//	mode = 'r';
-			//}
-			//socket.send(connectText.c_str(), connectText.length() + 1);
-			//socket.receive(buffer, sizeof(buffer), received);
-			//std::cout << buffer << std::endl;
+
 			RenderWindow modeWindow(VideoMode(menuWindow.getSize().x, menuWindow.getSize().y), "Snake++", Style::Close);
 			modeScreen modeScr(modeWindow.getSize().x, modeWindow.getSize().y);
 			
@@ -139,20 +118,17 @@ int main()
 			{
 				sf::TcpListener listener;
 				listener.listen(2000);
-				listener.accept(socket);					// Will be contain a new connection
+				listener.accept(socket);
 				connectText += " server";
 				mode = 's';
 			}
 			else if (type == 'c')
 			{
-				//cout << "Enter the new IP: ";
-				//cin >> ip;
 				socket.connect(ip, 2000);
 				connectText += " client";
 				mode = 'r';
 				
 			}
-
 			socket.send(connectText.c_str(), connectText.length() + 1);
 			socket.receive(buffer, sizeof(buffer), received);
 			std::cout << buffer << std::endl;
@@ -255,8 +231,7 @@ int main()
 				}
 			}
 		}
-		
-		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////       PLAY        //////////////////////////////////////
 		if (menu.pressedButton == PLAY) 
 		{
 			RenderWindow gameWindow(VideoMode(menuWindow.getSize().x, menuWindow.getSize().y), "Snake++", Style::Close);
@@ -286,12 +261,6 @@ int main()
 
 				while (gameWindow.pollEvent(e))
 				{
-					//if (e.type == Event::Resized)
-					//{
-					//	// update the view to the new size of the window
-					//	FloatRect visibleArea(0, 0, e.size.width, e.size.height);
-					//	gameWindow.setView(View(visibleArea));
-					//}
 					if (e.type == Event::Closed || Keyboard::isKeyPressed(Keyboard::Escape))
 						gameWindow.close();
 				}

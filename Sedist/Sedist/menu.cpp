@@ -5,7 +5,6 @@ Menu::Menu(float width, float height)
 {
 	if (!font.loadFromFile("04B_30__.ttf"))
 	{
-		// handle error
 	}
 
 	menu[0].setFont(font);
@@ -68,13 +67,6 @@ void Menu::menuWindowFunc(sf::RenderWindow &menuWindow, Menu *menu) {
 	sf::Event event;
 	while (menuWindow.pollEvent(event))
 	{
-		//if (event.type == Event::Resized)
-		//	{
-		//		// update the view to the new size of the window
-		//		FloatRect visibleArea(0, 0, event.size.width, event.size.height);
-		//		menuWindow.setView(View(visibleArea));
-		//	}
-
 		switch (event.type)
 		{
 		case sf::Event::KeyReleased:
