@@ -1,6 +1,6 @@
 #include "PlayWindow.h"
 
-void playWindowFunc(RenderWindow &gameWindow, bool isTailHit, int N, int M, int score, int size, int num, Text *text, Fruct f, Fruits fruitType, Snake s[], Sprite *appleSprite, Sprite *speedAppleSprite, Sprite *bgDarkSprite, Sprite *bgLightSprite, Sprite *snakeHeadSprite, Sprite *snakeBodySprite, Sprite *rotAppleSprite)
+void playWindowFunc(RenderWindow &gameWindow, bool isTailHit, bool isEnemyLost, int N, int M, int score, int size, int num, Text *text, Fruct f, Fruits fruitType, Snake s[], Sprite *appleSprite, Sprite *speedAppleSprite, Sprite *bgDarkSprite, Sprite *bgLightSprite, Sprite *snakeHeadSprite, Sprite *snakeBodySprite, Sprite *rotAppleSprite)
 {
 	for (int i = 0; i < N; i++) {
 		for (int j = 2; j < M; j++)

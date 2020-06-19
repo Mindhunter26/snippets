@@ -94,7 +94,8 @@ void Menu::menuWindowFunc(sf::RenderWindow &menuWindow, Menu *menu) {
 				case 0:
 					std::cout << "Play button has been pressed" << std::endl;
 					menu->pressedButton = PLAY;
-					menuWindow.close();
+					menu->isVisible = false;
+					menuWindow.setVisible(false);
 					break;
 				case 1:
 					std::cout << "Play online button has been pressed" << std::endl;
@@ -104,7 +105,8 @@ void Menu::menuWindowFunc(sf::RenderWindow &menuWindow, Menu *menu) {
 				case 2:
 					std::cout << "Guide button has been pressed" << std::endl;
 					menu->pressedButton = GUIDE;
-					menuWindow.close();
+					menu->isVisible = false;
+					menuWindow.setVisible(false);
 					break;
 				case 3:
 					std::cout << "Exit button has been pressed" << std::endl;

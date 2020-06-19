@@ -22,6 +22,7 @@ public:
 	void draw(sf::RenderWindow & window);
 	void MoveUp();
 	void MoveDown();
+	bool isVisible = true;
 	int GetPressedItem() { return selectedItemIndex; }
 	buttonPressed pressedButton = NOTPRESSED;
 	void menuWindowFunc(sf::RenderWindow &window, Menu *menu);

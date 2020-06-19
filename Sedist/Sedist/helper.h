@@ -1,7 +1,8 @@
 #pragma once
 #include <cmath>
 #include <SFML/Graphics.hpp>
-
+#include <SFML/Network.hpp>
+#include <iostream>
 class Snake {
 public:
 	int x, y;

@@ -31,7 +31,10 @@ void Guide::guideWindowFunc(sf::RenderWindow &window, Guide *guide) {
 		//	gameWindow.setView(View(visibleArea));
 		//}
 		if (event.type == sf::Event::Closed)
+		{
+			isClosed = true;
 			window.close();
+		}
 		switch (event.type)
 		{
 		case sf::Event::KeyReleased:
@@ -39,6 +42,7 @@ void Guide::guideWindowFunc(sf::RenderWindow &window, Guide *guide) {
 			{
 			case sf::Keyboard::Enter:
 				isEnterPressed = true;
+				
 				window.close();
 				break;
 			}

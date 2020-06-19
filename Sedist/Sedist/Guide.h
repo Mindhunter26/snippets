@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include "Menu.h"
 class Guide
 {
 private:
@@ -11,6 +11,7 @@ public:
 	Guide(float width, float height);
 	~Guide();
 	bool isEnterPressed = false;
+	bool isClosed = false;
 	void draw(sf::RenderWindow &window);
 	void guideWindowFunc(sf::RenderWindow &window, Guide *guide);
 };

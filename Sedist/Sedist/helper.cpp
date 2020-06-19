@@ -45,6 +45,7 @@ void logic(int *num, int dir, Snake *s, Fruct *f, Fruits *fruitType, float *dela
 		{
 			*fruitType = static_cast<Fruits>(rand() % 2);
 		}
+		
 		f->x = 2 + rand() % (N - 2);
 		f->y = 2 + rand() % (M - 2);
 		for (int i = 0; i < *num; i++) {

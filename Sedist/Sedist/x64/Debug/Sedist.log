@@ -1,21 +1,66 @@
-﻿  main.cpp
-d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(18): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(30): warning C4305: инициализация: усечение из "double" в "float"
-d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(55): warning C4244: аргумент: преобразование "T" в "float", возможна потеря данных
+﻿  gameOver.cpp
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\gameover.cpp(23): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\gameover.cpp(28): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+  Guide.cpp
+  helper.cpp
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\helper.cpp(25): warning C4305: =: усечение из "double" в "float"
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\helper.cpp(30): warning C4305: =: усечение из "double" в "float"
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\helper.cpp(34): warning C4305: =: усечение из "double" в "float"
+  main.cpp
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(19): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(33): warning C4305: инициализация: усечение из "double" в "float"
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(65): warning C4244: аргумент: преобразование "T" в "float", возможна потеря данных
           with
           [
               T=unsigned int
           ]
-d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(136): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(140): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(145): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(153): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(157): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(164): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(170): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(184): warning C4244: аргумент: преобразование "T" в "float", возможна потеря данных
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(75): warning C4244: аргумент: преобразование "T" в "float", возможна потеря данных
           with
           [
               T=unsigned int
           ]
-  Sedist.vcxproj -> D:\MrGrek\VisualProjects\snippets\snippets\Sedist\x64\Debug\Sedist.exe
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(102): warning C4305: =: усечение из "double" в "float"
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(127): warning C4244: аргумент: преобразование "T" в "float", возможна потеря данных
+          with
+          [
+              T=unsigned int
+          ]
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(250): warning C4244: аргумент: преобразование "T" в "float", возможна потеря данных
+          with
+          [
+              T=unsigned int
+          ]
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(267): warning C4305: =: усечение из "double" в "float"
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(340): warning C4244: аргумент: преобразование "T" в "float", возможна потеря данных
+          with
+          [
+              T=unsigned int
+          ]
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\main.cpp(31): warning C4101: prevScore: неиспользованная локальная переменная
+  menu.cpp
+  onlineMode.cpp
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\onlinemode.cpp(25): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+  PlayWindow.cpp
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\playwindow.cpp(10): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\playwindow.cpp(14): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\playwindow.cpp(19): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\playwindow.cpp(27): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\playwindow.cpp(31): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\playwindow.cpp(38): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\playwindow.cpp(44): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+d:\mrgrek\visualprojects\snippets\snippets\sedist\sedist\playwindow.cpp(50): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Создание кода...
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppCommon.targets(720,5): error MSB6006: "link.exe" завершилась с кодом 1168.
+LINK : fatal error LNK1168: не удается открыть D:\MrGrek\VisualProjects\snippets\snippets\Sedist\x64\Debug\Sedist.exe для записи
