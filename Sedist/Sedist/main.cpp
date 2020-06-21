@@ -59,7 +59,7 @@ int main()
 	
 	bool update = false;
 
-	//////////////////////////////////////////////////    MENU    ///////////////////////////////////////////////////////////////////////////////
+	
 	RenderWindow menuWindow(VideoMode(w, h), "Snake++", Style::Close);
 	Menu menu(menuWindow.getSize().x, menuWindow.getSize().y);
 	std::cout << menu.pressedButton;
@@ -81,7 +81,7 @@ int main()
 		}
 		if (menu.pressedButton == PLAY) break;
 	}
-	////////////////////////////////////////////   PLAY ONLINE   ////////////////////////////////////////////////////////////////////////////
+	
 
 	while (1) 
 	{
@@ -231,7 +231,7 @@ int main()
 				}
 			}
 		}
-		////////////////////////////       PLAY        //////////////////////////////////////
+		
 		if (menu.pressedButton == PLAY) 
 		{
 			RenderWindow gameWindow(VideoMode(menuWindow.getSize().x, menuWindow.getSize().y), "Snake++", Style::Close);
@@ -303,7 +303,7 @@ int main()
 				playWindowFunc(gameWindow, isTailHit,isEnemyLost, N, M, score, size, num, &text, f, fruitType, s, &appleSprite, &speedAppleSprite, &bgDarkSprite, &bgLightSprite, &snakeHeadSprite, &snakeBodySprite, &rotAppleSprite);
 			}
 
-			/////////////////////////////////     GAME OVER      ////////////////////////////////////////////////////////////
+			
 			if (isTailHit || isEnemyLost) {
 				RenderWindow resultWindow(VideoMode(w, h), "Snake++", Style::Close);
 				GameOver gameOver(gameWindow.getSize().x, gameWindow.getSize().y);
